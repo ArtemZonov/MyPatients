@@ -13,6 +13,8 @@ import kotlinx.android.synthetic.main.fragment_details.*
 private const val ARG_PARAM1 = "param1"
 private const val ARG_PARAM2 = "param2"
 private const val ARG_PARAM3 = "param3"
+private const val ARG_PARAM4 = "param4"
+private const val ARG_PARAM5 = "param5"
 
 
 /**
@@ -25,6 +27,8 @@ class DetailsFragment : Fragment() {
     private var name: String? = null
     private var lastName: String? = null
     private var detailsText: String? = null
+    private var age: Int? = null
+    private var sex: String? = null
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -33,6 +37,8 @@ class DetailsFragment : Fragment() {
             name = it.getString(ARG_PARAM1)
             lastName = it.getString(ARG_PARAM2)
             detailsText = it.getString(ARG_PARAM3)
+            age = it.getInt(ARG_PARAM4)
+            sex = it.getString(ARG_PARAM5)
 
 
         }
@@ -51,6 +57,8 @@ class DetailsFragment : Fragment() {
         tvNameDetails.text = name
         tvLastNameDetails.text = lastName
         tvDetails.text = detailsText
+        tvAGE.text = age.toString()
+        tvSEX.text = sex
 
     }
 
@@ -65,12 +73,15 @@ class DetailsFragment : Fragment() {
          */
         // TODO: Rename and change types and number of parameters
         @JvmStatic
-        fun newInstance(name: String, lastName: String, details : String) =
+        fun newInstance(name: String, lastName: String, details : String, age : Int, sex : String) =
             DetailsFragment().apply {
                 arguments = Bundle().apply {
                     putString(ARG_PARAM1, name)
                     putString(ARG_PARAM2, lastName)
                     putString(ARG_PARAM3, details)
+                    putString(ARG_PARAM4, age.toString())
+                    putString(ARG_PARAM5, sex)
+
                 }
             }
     }

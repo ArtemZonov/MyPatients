@@ -18,6 +18,8 @@ class PatientsAdapter(val patients : ArrayList<Patient>, val context: Context, v
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         holder.name.text = patients[position].name
         holder.lastname.text = patients[position].lastname
+        holder.age?.text = patients[position].age.toString()
+        holder.sex?.text = patients[position].sex
         holder.root.setOnClickListener {
             callback.onItemSelected(position)
         }
@@ -32,6 +34,8 @@ class ViewHolder(itemView : View) : RecyclerView.ViewHolder(itemView){
     val name = itemView.tvNameList
     val lastname = itemView.tvLastNameList
     val root = itemView.clItemRoot
+    val age = itemView.tvAGE
+    val sex = itemView.tvSEX
 
 
 }
